@@ -18,25 +18,25 @@
       <p>Insira apenas os modificadores</p>
 
       <label for="for">Força:</label> <br />
-      <input type="text" id="for" />
+      <input type="text" id="for" /> <br />
 
       <label for="const">Constituição:</label> <br />
-      <input type="text" id="forca" />
+      <input type="text" id="forca" /> <br />
 
       <label for="des">Destreza:</label> <br />
-      <input type="text" id="Dex" />
+      <input type="text" id="Dex" /> <br />
 
       <label for="int">Inteligência:</label> <br />
-      <input type="text" id="int" />
+      <input type="text" id="int" /> <br />
 
       <label for="sab">Sabedoria:</label> <br />
-      <input type="text" id="sab" />
+      <input type="text" id="sab" /> <br />
 
       <label for="car">Carisma:</label> <br />
-      <input type="text" id="char" />
+      <input type="text" id="char" /><br />
 
       <label for="prof">Bonus de proficiência:</label> <br />
-      <input type="text" id="prof" />
+      <input type="text" id="prof" /> <br />
     </div>
 
     <select id="dados">
@@ -54,7 +54,7 @@
 
       <option value="d100">d100(dado de 100 lados)</option>
     </select>
-
+    <br />
     <select id="atributos">
       <option value="padrão">Sem atributo-chave</option>
 
@@ -70,5 +70,12 @@
 
       <option value="char">Carisma</option>
     </select>
+
+    <form id="bonus">
+      <input type="checkbox" value="proftrue" />
+      <label for="proftrue">Adicionar proficiência</label>
+    </form>
+
+    <button id="rolar">Rolar dado</button>
   </body>
 </html>
