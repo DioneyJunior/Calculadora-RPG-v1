@@ -9,37 +9,37 @@
   <body>
     <h1>Dados do personagem</h1>
     <div id="personagem">
-      <label for="nome">Insira o nome do personagem:</label>
+      <label for="name">Insira o nome do personagem:</label>
 
-      <input type="text" name="" id="nome" />
+      <input type="text" name="" id="name" />
 
       <h2>Atributos do personagem</h2>
 
       <p>Insira apenas os modificadores</p>
 
-      <label for="for">Força:</label> <br />
-      <input type="text" id="for" /> <br />
+      <label for="strInput">Força:</label> <br />
+      <input type="number" id="strInput" /> <br />
 
-      <label for="const">Constituição:</label> <br />
-      <input type="text" id="forca" /> <br />
+      <label for="dexInput">Destreza:</label> <br />
+      <input type="number" id="dexInput" /> <br />
 
-      <label for="des">Destreza:</label> <br />
-      <input type="text" id="Dex" /> <br />
+      <label for="constInput">Constituição:</label> <br />
+      <input type="number" id="constInput" /> <br />
 
-      <label for="int">Inteligência:</label> <br />
-      <input type="text" id="int" /> <br />
+      <label for="intInput">Inteligência:</label> <br />
+      <input type="number" id="intInput" /> <br />
 
-      <label for="sab">Sabedoria:</label> <br />
-      <input type="text" id="sab" /> <br />
+      <label for="wisInput">Sabedoria:</label> <br />
+      <input type="number" id="wisInput" /> <br />
 
-      <label for="car">Carisma:</label> <br />
-      <input type="text" id="char" /><br />
+      <label for="charInput">Carisma:</label> <br />
+      <input type="number" id="charInput" /><br />
 
-      <label for="prof">Bonus de proficiência:</label> <br />
-      <input type="text" id="prof" /> <br />
+      <label for="profInput">Bonus de proficiência:</label> <br />
+      <input type="number" id="profInput" /> <br />
     </div>
 
-    <select id="dados">
+    <select id=" dices">
       <option value="d4">d4(dado de 4 lados)</option>
 
       <option value="d6">d6(dado de 6 lados)</option>
@@ -55,7 +55,7 @@
       <option value="d100">d100(dado de 100 lados)</option>
     </select>
     <br />
-    <select id="atributos">
+    <select id="attribute">
       <option value="padrão">Sem atributo-chave</option>
 
       <option value="str">Força</option>
@@ -71,12 +71,11 @@
       <option value="char">Carisma</option>
     </select>
 
-    <form id="bonus">
+    <form id="prof">
       <input type="checkbox" value="proftrue" />
       <label for="proftrue">Adicionar proficiência</label>
     </form>
-
-    <button id="rolar">Rolar dado</button>
+    <button id="btnRoll">Rolar dado</button>
     <script src="index.js"></script>
+  </body>
 </html>
-
