@@ -8,7 +8,7 @@ var charInput = document.getElementById("charInput").value;
 var profInput = document.getElementById("profInput").value;
 var btnRoll = document.getElementById("btnRoll");
 var output = document.getElementById("output");
-
+let result
 const character = {
   str: strInput,
   dex: dexInput,
@@ -60,3 +60,53 @@ function loadData() {
 }
 window.onload = loadData;
 
+function rollDice() {
+  let result;
+  var dices = document.getElementById("dices").value;
+  const random = (min, max) => Math.round(Math.random() * (max - min));
+  switch (dices) {
+    case "d4":
+      result = random(1, 4);
+      output.innerHTML = `${result}`;
+      break;
+
+    case "d6":
+      result = random(1, 6);
+      output.innerHTML = `${result}`;
+      break;
+
+    case "d8":
+      result = random(1, 8);
+      output.innerHTML = `${result}`;
+      break;
+
+    case "d10":
+      result = random(1, 10);
+      output.innerHTML = `${result}`;
+      break;
+
+    case "d12":
+      result = random(1, 12);
+      output.innerHTML = `${result}`;
+      break;
+
+    case "d20":
+      result = random(1, 20);
+      output.innerHTML = `${result}`;
+      break;
+
+    case "d100":
+      result = random(1, 100);
+      output.innerHTML = `${result}`;
+      break;
+
+    default:
+      break;
+  }
+  return result;
+}
+function btnRollClick() {
+  rollDice();
+  save();
+}
+btnRoll.addEventListener("click", btnRollClick);
