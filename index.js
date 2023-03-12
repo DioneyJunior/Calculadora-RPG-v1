@@ -8,7 +8,8 @@ var charInput = document.getElementById("charInput").value;
 var profInput = document.getElementById("profInput").value;
 var btnRoll = document.getElementById("btnRoll");
 var output = document.getElementById("output");
-let result
+let result;
+let bonus;
 const character = {
   str: strInput,
   dex: dexInput,
@@ -105,8 +106,67 @@ function rollDice() {
   }
   return result;
 }
+
+function addAttribute() {
+  var attribute = document.getElementById("attribute").value;
+  var bonus
+  var rollResult = rollDice(); 
+  var newresult;
+
+  var character = {
+    str: document.getElementById("strInput").value,
+    dex: document.getElementById("dexInput").value,
+    cons: document.getElementById("constInput").value,
+    int: document.getElementById("intInput").value,
+    wis: document.getElementById("wisInput").value,
+    char: document.getElementById("charInput").value,
+  }
+  switch (attribute) {
+    case "str":
+      bonus = character.str;
+      newresult = rollResult + parseInt(bonus);
+      output.innerHTML = `${rollResult} + ${bonus} = ${newresult}`;
+      break;
+
+    case "cons":
+      bonus = character.cons;
+      newresult = rollResult + parseInt(bonus);
+      output.innerHTML = `${rollResult} + ${bonus} = ${newresult}`;
+      break;
+
+    case "dex":
+      bonus = character.dex;
+      newresult = rollResult + parseInt(bonus);
+      output.innerHTML = `${rollResult} + ${bonus} = ${newresult}`;
+      break;
+
+    case "int":
+      bonus = character.int;
+      newresult = rollResult + parseInt(bonus);
+      output.innerHTML = `${rollResult} + ${bonus} = ${newresult}`;
+      break;
+
+    case "wis":
+      bonus = character.wis;
+      newresult = rollResult + parseInt(bonus);
+      output.innerHTML = `${rollResult} + ${bonus} = ${newresult}`;
+      break;
+
+    case "char":
+      bonus = character.char;
+      newresult = rollResult + parseInt(bonus);
+      output.innerHTML = `${rollResult} + ${bonus} = ${newresult}`;
+      break;
+
+    default:
+      break;
+  }
+}
+
+
 function btnRollClick() {
   rollDice();
   save();
+  addAttribute()
 }
 btnRoll.addEventListener("click", btnRollClick);
