@@ -64,7 +64,7 @@ window.onload = loadData;
 function rollDice() {
   let result;
   var dices = document.getElementById("dices").value;
-  const random = (min, max) => Math.round(Math.random() * (max - min));
+  const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
   switch (dices) {
     case "d4":
       result = random(1, 4);
@@ -162,8 +162,6 @@ function addAttribute() {
       break;
   }
 }
-
-
 function btnRollClick() {
   rollDice();
   save();
