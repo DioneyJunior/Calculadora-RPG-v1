@@ -10,6 +10,7 @@ var btnRoll = document.getElementById("btnRoll");
 var output = document.getElementById("output");
 let result;
 let bonus;
+
 const character = {
   str: strInput,
   dex: dexInput,
@@ -109,59 +110,69 @@ function rollDice() {
 
 function addAttribute() {
   var attribute = document.getElementById("attribute").value;
-  var bonus
-  var rollResult = rollDice(); 
+  var bonus;
+  var rollResult = rollDice();
   var newresult;
-
+  var checkbox = document.getElementById("proftrue");
   var character = {
-    str: document.getElementById("strInput").value,
-    dex: document.getElementById("dexInput").value,
-    cons: document.getElementById("constInput").value,
-    int: document.getElementById("intInput").value,
-    wis: document.getElementById("wisInput").value,
-    char: document.getElementById("charInput").value,
-  }
+    str: parseInt(document.getElementById("strInput").value),
+    dex: parseInt(document.getElementById("dexInput").value),
+    cons: parseInt(document.getElementById("constInput").value),
+    int: parseInt(document.getElementById("intInput").value),
+    wis: parseInt(document.getElementById("wisInput").value),
+    char: parseInt(document.getElementById("charInput").value),
+    prof: parseInt(document.getElementById("profInput").value)
+  };
   switch (attribute) {
     case "str":
       bonus = character.str;
-      newresult = rollResult + parseInt(bonus);
-      output.innerHTML = `${rollResult} + ${bonus} = ${newresult}`;
       break;
 
     case "cons":
       bonus = character.cons;
-      newresult = rollResult + parseInt(bonus);
-      output.innerHTML = `${rollResult} + ${bonus} = ${newresult}`;
       break;
 
     case "dex":
       bonus = character.dex;
-      newresult = rollResult + parseInt(bonus);
-      output.innerHTML = `${rollResult} + ${bonus} = ${newresult}`;
       break;
 
     case "int":
       bonus = character.int;
-      newresult = rollResult + parseInt(bonus);
-      output.innerHTML = `${rollResult} + ${bonus} = ${newresult}`;
       break;
 
     case "wis":
       bonus = character.wis;
-      newresult = rollResult + parseInt(bonus);
-      output.innerHTML = `${rollResult} + ${bonus} = ${newresult}`;
       break;
 
     case "char":
       bonus = character.char;
-      newresult = rollResult + parseInt(bonus);
-      output.innerHTML = `${rollResult} + ${bonus} = ${newresult}`;
       break;
 
     default:
+      bonus = 0;
       break;
   }
+
+  if (checkbox.checked && bonus !== undefined) {
+    newresult = rollResult + bonus + character.prof;
+    output.innerHTML = `${rollResult} + ${bonus} + ${character.prof} = ${newresult} `;
+  }
+    else if(bonus === 0){
+    output.innerHTML = `${rollResult}`
+  }
+  else if (bonus !== undefined) {
+    newresult = rollResult + bonus;
+    output.innerHTML = `${rollResult} + ${bonus} = ${newresult} `;
+  } 
+  else {
+    newresult = rollResult + character.prof;
+    output.innerHTML = `${rollResult} + ${character.prof} = ${newresult} `;
+  }
+  
 }
+
+
+
 function btnRollClick() {
   rollDice();
   save();
