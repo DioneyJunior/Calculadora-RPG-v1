@@ -11,16 +11,6 @@ var output = document.getElementById("output");
 let result;
 let bonus;
 
-const character = {
-  str: strInput,
-  dex: dexInput,
-  cons: constInput,
-  int: intInput,
-  wis: wisInput,
-  char: charInput,
-  pof: profInput,
-};
-
 function save() {
   var nameInput = document.getElementById("name").value;
   var strInput = document.getElementById("strInput").value;
