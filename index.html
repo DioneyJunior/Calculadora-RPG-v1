@@ -17,38 +17,106 @@
     <title>Calculadora RPG</title>
   </head>
   <body>
-    <h1>Dados do personagem</h1>
-    <div id="personagem">
-      <label for="name">Insira o nome do personagem:</label>
+    <!-- Personagem -->
+    <button
+      class="btn btn-primary"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvas"
+      aria-controls="offcanvas"
+    >
+      <i class="bi bi-layout-text-sidebar-reverse"></i>
+      Personagem
+    </button>
+    <div
+      class="offcanvas offcanvas-start show"
+      tabindex="-1"
+      id="offcanvas"
+      aria-labelledby="offcanvasLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasLabel">Personagem</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="container-fluid" id="personagem">
+        <label for="name">Nome</label>
+        <input
+          placeholder="Insira o nome"
+          class="form-control"
+          type="text"
+          name=""
+          id="name"
+        />
+        <br />
 
-      <input type="text" name="" id="name" />
+        <label for="strInput">Força</label>
+        <input
+          placeholder="Modificador de força Ex: 3"
+          class="form-control"
+          type="number"
+          id="strInput"
+        />
+        <br />
 
-      <h2>Atributos do personagem</h2>
+        <label for="constInput">Constituição</label>
+        <input
+          placeholder="Modificador de Constituição Ex: 3"
+          class="form-control"
+          type="number"
+          id="constInput"
+        />
+        <br />
 
-      <p>Insira apenas os modificadores</p>
+        <label for="dexInput">Destreza</label>
+        <input
+          placeholder="Modificador de Destreza Ex: 3"
+          class="form-control"
+          type="number"
+          id="dexInput"
+        />
+        <br />
 
-      <label for="strInput">Força:</label> <br />
-      <input type="number" id="strInput" /> <br />
+        <label for="intInput">Inteligência</label>
+        <input
+          placeholder="Modificador de Inteligência Ex: 3"
+          class="form-control"
+          type="number"
+          id="intInput"
+        />
+        <br />
 
-      <label for="constInput">Constituição:</label> <br />
-      <input type="number" id="constInput" /> <br />
+        <label for="wisInput">Sabedoria</label>
+        <input
+          placeholder="Modificador de Sabedoria Ex: 3"
+          class="form-control"
+          type="number"
+          id="wisInput"
+        />
+        <br />
 
-      <label for="dexInput">Destreza:</label> <br />
-      <input type="number" id="dexInput" /> <br />
+        <label for="charInput">Carisma</label>
+        <input
+          placeholder="Modificador de Carisma Ex: 3"
+          class="form-control"
+          type="number"
+          id="charInput"
+        /><br />
 
-      <label for="intInput">Inteligência:</label> <br />
-      <input type="number" id="intInput" /> <br />
-
-      <label for="wisInput">Sabedoria:</label> <br />
-      <input type="number" id="wisInput" /> <br />
-
-      <label for="charInput">Carisma:</label> <br />
-      <input type="number" id="charInput" /><br />
-
-      <label for="profInput">Bonus de proficiência:</label> <br />
-      <input type="number" id="profInput" /> <br />
+        <label for="profInput">Bonus de proficiência</label>
+        <input
+          placeholder="Bonus de proficiência Ex: 3"
+          class="form-control"
+          type="number"
+          id="profInput"
+        />
+        <br />
+      </div>
     </div>
-
     <select id="dices">
       <option value="d4">d4(dado de 4 lados)</option>
 
