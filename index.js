@@ -55,7 +55,8 @@ window.onload = loadData;
 function rollDice() {
   let result;
   var dices = document.getElementById("dices").value;
-  const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+  const random = (min, max) =>
+    Math.floor(Math.random() * (max - min + 1) + min);
   switch (dices) {
     case "d4":
       result = random(1, 4);
@@ -100,10 +101,8 @@ function rollDice() {
 
 function addAttribute() {
   var attribute = document.getElementById("attribute").value;
-  var bonus;
-  var rollResult = rollDice();
-  var newresult;
-  var checkbox = document.getElementById("proftrue");
+  var proficiencyCheckbox = document.getElementById("proftrue");
+
   var character = {
     str: parseInt(document.getElementById("strInput").value),
     dex: parseInt(document.getElementById("dexInput").value),
@@ -111,61 +110,70 @@ function addAttribute() {
     int: parseInt(document.getElementById("intInput").value),
     wis: parseInt(document.getElementById("wisInput").value),
     char: parseInt(document.getElementById("charInput").value),
-    prof: parseInt(document.getElementById("profInput").value)
+    prof: parseInt(document.getElementById("profInput").value),
   };
+
+  var diceValue = rollDice();
+  var bonusValue;
+  var result = 0;
+
   switch (attribute) {
     case "str":
-      bonus = character.str;
+      bonusValue = character.str;
       break;
 
     case "cons":
-      bonus = character.cons;
+      bonusValue = character.cons;
       break;
 
     case "dex":
-      bonus = character.dex;
+      bonusValue = character.dex;
       break;
 
     case "int":
-      bonus = character.int;
+      bonusValue = character.int;
       break;
 
     case "wis":
-      bonus = character.wis;
+      bonusValue = character.wis;
       break;
 
     case "char":
-      bonus = character.char;
+      bonusValue = character.char;
       break;
 
     default:
-      bonus = 0;
+      bonusValue = undefined;
       break;
   }
 
-  if (checkbox.checked && bonus !== undefined) {
-    newresult = rollResult + bonus + character.prof;
-    output.innerHTML = `${rollResult} + ${bonus} + ${character.prof} = ${newresult} `;
+  result = diceValue;
+  if (!isNaN(bonusValue)) {
+    result += bonusValue;
   }
-    else if(bonus === 0){
-    output.innerHTML = `${rollResult}`
+  if (proficiencyCheckbox.checked) {
+    result += character.prof;
   }
-  else if (bonus !== undefined) {
-    newresult = rollResult + bonus;
-    output.innerHTML = `${rollResult} + ${bonus} = ${newresult} `;
-  } 
-  else {
-    newresult = rollResult + character.prof;
-    output.innerHTML = `${rollResult} + ${character.prof} = ${newresult} `;
+
+  let outputText = `${diceValue}`;
+  if (!isNaN(bonusValue)) {
+    outputText += ` + ${bonusValue}`;
   }
-  
+  if (proficiencyCheckbox.checked) {
+    outputText += ` + ${character.prof}`;
+  }
+
+  if (!isNaN(bonusValue) || proficiencyCheckbox.checked) {
+    outputText += ` = ${result}`;
+  }
+
+  output.innerHTML = outputText;
 }
-
-
 
 function btnRollClick() {
   rollDice();
   save();
-  addAttribute()
+  addAttribute();
 }
+
 btnRoll.addEventListener("click", btnRollClick);
