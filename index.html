@@ -117,45 +117,62 @@
         <br />
       </div>
     </div>
-    <select id="dices">
-      <option value="d4">d4(dado de 4 lados)</option>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">
+          <!-- dados -->
+          <select
+            class="form-select"
+            size="7"
+            multiple
+            aria-label=""
+            id="dices"
+          >
+            <option value="d4">d4(dado de 4 lados)</option>
 
-      <option value="d6">d6(dado de 6 lados)</option>
+            <option value="d6">d6(dado de 6 lados)</option>
 
-      <option value="d8">d8(dado de 8 lados)</option>
+            <option value="d8">d8(dado de 8 lados)</option>
 
-      <option value="d10">d10(dado de 10 lados)</option>
+            <option value="d10">d10(dado de 10 lados)</option>
 
-      <option value="d12">d12(dado de 12 lados)</option>
+            <option value="d12">d12(dado de 12 lados)</option>
 
-      <option value="d20">d20(dado de 20 lados)</option>
+            <option value="d20">d20(dado de 20 lados)</option>
 
-      <option value="d100">d100(dado de 100 lados)</option>
-    </select>
-    <br />
-    <select id="attribute">
-      <option value="padrão">Sem atributo-chave</option>
+            <option value="d100">d100(dado de 100 lados)</option>
+          </select>
+        </div>
+        <div class="col">
+          <!-- select atributos -->
+          <select class="form-select" id="attribute">
+            <option value="padrão">Sem atributo-chave</option>
 
-      <option value="str">Força</option>
+            <option value="str">Força</option>
 
-      <option value="cons">Constituição</option>
+            <option value="cons">Constituição</option>
 
-      <option value="dex">Destreza</option>
+            <option value="dex">Destreza</option>
 
-      <option value="int">Inteligência</option>
+            <option value="int">Inteligência</option>
 
-      <option value="wis">Sabedoria</option>
+            <option value="wis">Sabedoria</option>
 
-      <option value="char">Carisma</option>
-    </select>
+            <option value="char">Carisma</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- proficiencia checkbox -->
+    <div class="container">
+      <form id="prof">
+        <input type="checkbox" id="proftrue" />
+        <label for="proftrue">Adicionar proficiência</label>
+      </form>
+      <button id="btnRoll">Rolar dado</button>
+    </div>
 
-    <form id="prof">
-      <input type="checkbox" id="proftrue" />
-      <label for="proftrue">Adicionar proficiência</label>
-    </form>
-    <button id="btnRoll">Rolar dado</button>
-
-    <div id="output"></div>
+    <div class="container text-center" id="output"></div>
 
     <script src="index.js"></script>
   </body>
