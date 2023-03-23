@@ -8,8 +8,15 @@ var charInput = document.getElementById("charInput").value;
 var profInput = document.getElementById("profInput").value;
 var btnRoll = document.getElementById("btnRoll");
 var output = document.getElementById("output");
+var popoverContent = document.querySelectorAll('[data-bs-content="popover"]');
 let result;
 let bonus;
+var popoverTriggerList = [].slice.call(
+  document.querySelectorAll('[data-bs-toggle="popover"]')
+);
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl);
+});
 
 function save() {
   var nameInput = document.getElementById("name").value;
@@ -100,6 +107,12 @@ function rollDice() {
 }
 
 function addAttribute() {
+  var output = document.getElementById("output");
+  var popover = bootstrap.Popover.getInstance(output);
+  if (popover) {
+    popover.dispose();
+  }
+
   var attribute = document.getElementById("attribute").value;
   var proficiencyCheckbox = document.getElementById("proftrue");
 
@@ -167,7 +180,10 @@ function addAttribute() {
     outputText += ` = ${result}`;
   }
 
-  output.innerHTML = outputText;
+  output.setAttribute("data-bs-content", outputText);
+  output.innerHTML = result;
+
+  new bootstrap.Popover(output);
 }
 
 function btnRollClick() {
