@@ -172,7 +172,6 @@ function addAttribute() {
 
 function btnRollClick() {
   rollDice();
-  save();
   addAttribute();
 }
 
