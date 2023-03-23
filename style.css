@@ -21,6 +21,46 @@ body {
   margin-bottom: 80px;
   width: 100%;
 }
+.img d-block {
+  margin: 20%;
+}
+/* input */
+.img {
+  border: 50%;
+  padding: 2px;
+}
+
+label img {
+  display: block;
+}
+
+input[type="radio"] {
+  display: none;
+  margin: 10px;
+}
+
+input[type="radio"] label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="radio"]:checked + label {
+  color: #ffffff;
+}
+
+@media (max-width: 1080px) {
+  img {
+    height: 100%;
+    max-height: 100px;
+  }
+}
+@media (max-width: 2160px) {
+  img {
+    height: 100%;
+    max-height: 200px;
+  }
+}
 /* icones */
 
 svg {
