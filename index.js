@@ -61,10 +61,10 @@ window.onload = loadData;
 
 function rollDice() {
   let result;
-  var dices = document.getElementById("dices").value;
+  var selectedDice = document.querySelector('input[name="dice"]:checked').value;
   const random = (min, max) =>
     Math.floor(Math.random() * (max - min + 1) + min);
-  switch (dices) {
+  switch (selectedDice) {
     case "d4":
       result = random(1, 4);
       output.innerHTML = `${result}`;
