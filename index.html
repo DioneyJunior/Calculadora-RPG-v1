@@ -346,6 +346,7 @@
             id="d4"
             name="dice"
             value="d4"
+            onclick="changed4()"
           />
           <label for="d4"
             >d4<img src="/img/d4.png" class="img d-block" id="d4Img"
@@ -357,6 +358,7 @@
             id="d6"
             name="dice"
             value="d6"
+            onclick="changed6()"
           />
           <label for="d6"
             >d6<img src="/img/d6.png" class="img d-block" id="d6Img"
@@ -368,6 +370,7 @@
             id="d8"
             name="dice"
             value="d8"
+            onclick="changed8()"
           />
           <label for="d8"
             >d8<img src="/img/d8.png" class="img d-block" id="d8Img"
@@ -379,6 +382,7 @@
             id="d10"
             name="dice"
             value="d10"
+            onclick="changed10()"
           />
           <label for="d10"
             >d10<img src="/img/d10.png" class="img d-block" id="d10Img"
@@ -390,6 +394,7 @@
             id="d12"
             name="dice"
             value="d12"
+            onclick="changed12()"
           />
           <label for="d12"
             >d12<img src="/img/d12.png" class="img d-block" id="d12Img"
@@ -401,6 +406,7 @@
             id="d20"
             name="dice"
             value="d20"
+            onclick="changed20()"
           />
           <label for="d20"
             >d20<img src="/img/d20.png" class="img d-block" id="d20Img"
@@ -412,6 +418,7 @@
             id="d100"
             name="dice"
             value="d100"
+            onclick="changed100()"
           />
           <label for="d100"
             >d100<img src="/img/d100.png" class="img d-block" id="d100Img"
@@ -420,6 +427,9 @@
       </div>
     </div>
     <br />
+    <div class="mx-auto">
+      <div class>
+        <div class="row">
           <!-- select atributos -->
           <select class="form-select" id="attribute">
             <option value="padrão">Sem atributo-chave</option>
@@ -451,5 +461,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="index.js"></script>
+    <script src="img-change.js"></script>
   </body>
 </html>
