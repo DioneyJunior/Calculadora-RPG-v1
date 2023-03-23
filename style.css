@@ -24,6 +24,11 @@ body {
 .img d-block {
   margin: 20%;
 }
+
+#btnRoll {
+  margin-bottom: 2.7%;
+}
+
 /* input */
 .img {
   border: 50%;
