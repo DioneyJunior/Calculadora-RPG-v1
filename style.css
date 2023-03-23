@@ -66,6 +66,15 @@ input[type="radio"]:checked + label {
     max-height: 200px;
   }
 }
+
+/* select */
+
+select {
+  margin-top: 50px;
+  padding: 1px;
+  margin: 30px;
+}
+
 /* icones */
 
 svg {
