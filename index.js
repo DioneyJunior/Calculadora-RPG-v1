@@ -117,13 +117,13 @@ function addAttribute() {
   var proficiencyCheckbox = document.getElementById("proftrue");
 
   var character = {
-    str: parseInt(document.getElementById("strInput").value),
-    dex: parseInt(document.getElementById("dexInput").value),
-    cons: parseInt(document.getElementById("constInput").value),
-    int: parseInt(document.getElementById("intInput").value),
-    wis: parseInt(document.getElementById("wisInput").value),
-    char: parseInt(document.getElementById("charInput").value),
-    prof: parseInt(document.getElementById("profInput").value),
+    str: parseInt(document.getElementById("strInput").value) || 0,
+    dex: parseInt(document.getElementById("dexInput").value) || 0,
+    cons: parseInt(document.getElementById("constInput").value) || 0,
+    int: parseInt(document.getElementById("intInput").value) || 0,
+    wis: parseInt(document.getElementById("wisInput").value) || 0,
+    char: parseInt(document.getElementById("charInput").value) || 0,
+    prof: parseInt(document.getElementById("profInput").value) || 0,
   };
 
   var diceValue = rollDice();
@@ -167,7 +167,7 @@ function addAttribute() {
   }
 
   if (!isNaN(bonusValue)) {
-    bonusText = `${bonusText} (+${bonusValue})`;
+    bonusText = `${bonusText} (${bonusValue})`;
   }
 
   var result = diceValue;
@@ -180,19 +180,21 @@ function addAttribute() {
 
   var outputText = result;
   if (!isNaN(bonusValue) || proficiencyCheckbox.checked) {
-    outputText = `Dado(${diceValue})`;
+    outputText = `Dado (${diceValue})`;
 
     if (!isNaN(bonusValue)) {
       outputText += `, ${bonusText}`;
     }
 
-    if (proficiencyCheckbox.checked && character.prof !== 0) {
-      outputText += `, Proficiência (+${character.prof})`;
+    if (proficiencyCheckbox.checked) {
+      outputText += `, Proficiência (${character.prof})`;
     }
   }
 
   output.setAttribute("data-bs-content", outputText);
-  output.innerHTML = result;
+  output.innerHTML = result + '&nbsp;<i class="bi bi-info-circle"></i>';
+
+  document.getElementById("result-box").style.display = "block";
 
   new bootstrap.Popover(output);
 }
