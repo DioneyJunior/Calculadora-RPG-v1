@@ -128,31 +128,37 @@ function addAttribute() {
 
   var diceValue = rollDice();
   var bonusValue;
-  var result = 0;
+  var bonusText = "";
 
   switch (attribute) {
     case "str":
       bonusValue = character.str;
+      bonusText = "Força";
       break;
 
     case "cons":
       bonusValue = character.cons;
+      bonusText = "Constituição";
       break;
 
     case "dex":
       bonusValue = character.dex;
+      bonusText = "Destreza";
       break;
 
     case "int":
       bonusValue = character.int;
+      bonusText = "Inteligência";
       break;
 
     case "wis":
       bonusValue = character.wis;
+      bonusText = "Sabedoria";
       break;
 
     case "char":
       bonusValue = character.char;
+      bonusText = "Carisma";
       break;
 
     default:
@@ -160,7 +166,11 @@ function addAttribute() {
       break;
   }
 
-  result = diceValue;
+  if (!isNaN(bonusValue)) {
+    bonusText = `${bonusText} (+${bonusValue})`;
+  }
+
+  var result = diceValue;
   if (!isNaN(bonusValue)) {
     result += bonusValue;
   }
@@ -168,16 +178,17 @@ function addAttribute() {
     result += character.prof;
   }
 
-  let outputText = `${diceValue}`;
-  if (!isNaN(bonusValue)) {
-    outputText += ` + ${bonusValue}`;
-  }
-  if (proficiencyCheckbox.checked) {
-    outputText += ` + ${character.prof}`;
-  }
-
+  var outputText = result;
   if (!isNaN(bonusValue) || proficiencyCheckbox.checked) {
-    outputText += ` = ${result}`;
+    outputText = `Dado(${diceValue})`;
+
+    if (!isNaN(bonusValue)) {
+      outputText += `, ${bonusText}`;
+    }
+
+    if (proficiencyCheckbox.checked && character.prof !== 0) {
+      outputText += `, Proficiência (+${character.prof})`;
+    }
   }
 
   output.setAttribute("data-bs-content", outputText);
